@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     {
         Gameplay,
         Paused,
-        GameOver
+        GameOver,
+        LevelUp
     }
 
     public GameState currentState; // Current game state
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     [Header("Screens")]
     public GameObject pauseScreen; // Pause screen UI
     public GameObject resultScreen; // Result screen UI
+    public GameObject levelUpScreen; // Level up screen UI
 
     [Header("Current Stat Displays")]
     public Text currentHealthDisplay;
@@ -34,10 +36,20 @@ public class GameManager : MonoBehaviour
     public Image chosenCharacterImage;
     public Text chosenCharacterName;
     public Text levelReachedDisplay;
+    public Text timeSurvivedDisplay;
     public List<Image> chosenWeaponsUI = new List<Image>(6);
     public List<Image> chosenPassiveItemsUI = new List<Image>(6);
 
+    [Header("Stopwatch")]
+    public float timeLimit;
+    public float stopwatchTime;
+    public Text stopwatchDisplay;
+
     public bool isGameOver = false; // Is the game over? 
+
+    public bool choosingUpgrade = false; // Is the player choosing upgrades?
+
+    public GameObject playerObject; // Player
 
     void Awake() 
     {
@@ -62,6 +74,7 @@ public class GameManager : MonoBehaviour
             case GameState.Gameplay:
                 // Do gameplay stuff
                 CheckForPauseAndResume(); // Check for pause and resume
+                UpdateStopwatch(); // Update stopwatch
                 break;
 
             case GameState.Paused:
@@ -77,6 +90,17 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 0f; // Stop game
                     Debug.Log("Game Over");
                     DisplayResults(); // Display results
+                }
+                break;
+
+            case GameState.LevelUp:
+                // Do level up stuff
+                if(!choosingUpgrade) // If the player is not choosing upgrades
+                {
+                    choosingUpgrade = true; // Set choosing upgrade to true
+                    Time.timeScale = 0f; // Stop game
+                    Debug.Log("Level Up");
+                    levelUpScreen.SetActive(true); // Show level up screen
                 }
                 break;
 
@@ -130,10 +154,12 @@ public class GameManager : MonoBehaviour
     {
         pauseScreen.SetActive(false); // Hide pause screen
         resultScreen.SetActive(false); // Hide result screen
+        levelUpScreen.SetActive(false); // Hide level up screen
     }
 
     public void GameOver()
     {
+        timeSurvivedDisplay.text = stopwatchDisplay.text; // Set time survived display
         ChangeState(GameState.GameOver); // Set current state to game over
     }
 
@@ -186,5 +212,40 @@ public class GameManager : MonoBehaviour
                 chosenPassiveItemsUI[i].enabled = false; // Disable the chosen passive item UI
             }
         }
+    }
+
+    void UpdateStopwatch()
+    {
+        stopwatchTime += Time.deltaTime; // Set stopwatch time
+
+        UpdateStopwatchDisplay(); // Update stopwatch display
+
+        if(stopwatchTime >= timeLimit) // If stopwatch time is greater than or equal to time limit
+        {
+            GameOver(); // Game over
+        }
+    }
+
+    public void UpdateStopwatchDisplay()
+    {
+        int minutes = Mathf.FloorToInt(stopwatchTime / 60f); // Set minutes
+        int seconds = Mathf.FloorToInt(stopwatchTime % 60f); // Set seconds
+
+        stopwatchDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds); // Set stopwatch display
+    }
+
+    public void StartLevelUp()
+    {
+        ChangeState(GameState.LevelUp); // Set current state to level up
+        playerObject.SendMessage("RemoveAndApplyUpgrades"); // Send message to player object to apply upgrade options
+    }
+
+    public void EndLevelUp()
+    {
+        choosingUpgrade = false; // Set choosing upgrade to false
+        Time.timeScale = 1f; // Start time
+        levelUpScreen.SetActive(false); // Hide level up screen
+        ChangeState(GameState.Gameplay); // Set current state to gameplay
+        Debug.Log("Level Up ended");
     }
 }

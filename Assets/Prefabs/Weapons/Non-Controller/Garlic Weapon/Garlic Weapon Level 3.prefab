@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4470486517064648490}
   - component: {fileID: 9078786538706390252}
   m_Layer: 0
-  m_Name: Garlic Weapon Level 2
+  m_Name: Garlic Weapon Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5e08114fd40044fa631d6f886e0c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 2fb0bf22b4e43434f9d98cbb290265de, type: 2}
+  weaponData: {fileID: 11400000, guid: 9f678fc8b7f49384b88f4c0ed346c09c, type: 2}
   destroyAfterSeconds: 2
 --- !u!58 &9078786538706390252
 CircleCollider2D:

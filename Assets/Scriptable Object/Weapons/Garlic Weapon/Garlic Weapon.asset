@@ -19,4 +19,6 @@ MonoBehaviour:
   pierce: 0
   level: 1
   nextLevelPrefab: {fileID: 8367575720044690472, guid: 0588f51c2b667a84591492cfdada9dd6, type: 3}
+  name: Garlic Lv.1
+  description: 'Releases AOE damage '
   icon: {fileID: 1333370832, guid: b6792914e35c0af43b0303168cfaf5d6, type: 3}
