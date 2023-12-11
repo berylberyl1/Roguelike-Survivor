@@ -153,7 +153,6 @@ public class InventoryManager : MonoBehaviour
 
             if(upgradeType == 1)
             {
-                // WeaponUpgrade chosenWeaponUpgrade = weaponUpgradeOptions[Random.Range(0, weaponUpgradeOptions.Count)]; // Randomly choose a weapon upgrade
                 WeaponUpgrade chosenWeaponUpgrade = availableWeaponUpgrades[Random.Range(0, availableWeaponUpgrades.Count)]; // Randomly choose a weapon upgrade
 
                 availableWeaponUpgrades.Remove(chosenWeaponUpgrade);
@@ -201,7 +200,6 @@ public class InventoryManager : MonoBehaviour
             }
             else if(upgradeType == 2)
             {
-                // PassiveItemUpgrade chosenPassiveItemUpgrade = passiveItemUpgradeOptions[Random.Range(0, passiveItemUpgradeOptions.Count)]; // Randomly choose a passive item upgrade
                 PassiveItemUpgrade chosenPassiveItemUpgrade = availablePassiveItemUpgrades[Random.Range(0, availablePassiveItemUpgrades.Count)]; // Randomly choose a passive item upgrade
 
                 availablePassiveItemUpgrades.Remove(chosenPassiveItemUpgrade);
