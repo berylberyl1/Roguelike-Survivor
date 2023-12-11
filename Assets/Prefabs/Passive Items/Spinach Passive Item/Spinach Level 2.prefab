@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d5e3d510bd9f8439bcc428aea78ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveItemData: {fileID: 11400000, guid: 6200bcf478791bf4e93d07afdab949c0, type: 2}
+  passiveItemData: {fileID: 11400000, guid: 884fb274b7af1bb4b828cae137ef350c, type: 2}

@@ -15,10 +15,10 @@ MonoBehaviour:
   prefab: {fileID: 946715831270310101, guid: 26600ca2bb99b6748b8d1de4860cebbe, type: 3}
   damage: 5
   speed: 0
-  cooldownDuration: 2.5
+  cooldownDuration: 2.75
   pierce: 0
   level: 2
   nextLevelPrefab: {fileID: 8367575720044690472, guid: 4cea620a37406244f8a419df2e66cbbc, type: 3}
   name: Garlic Lv.2
-  description: Cooldown -1
+  description: Cooldown -0.25
   icon: {fileID: 1333370832, guid: b6792914e35c0af43b0303168cfaf5d6, type: 3}

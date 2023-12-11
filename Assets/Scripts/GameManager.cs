@@ -25,25 +25,25 @@ public class GameManager : MonoBehaviour
     public GameObject levelUpScreen; // Level up screen UI
 
     [Header("Current Stat Displays")]
-    public Text currentHealthDisplay;
-    public Text currentRecoveryDisplay;
-    public Text currentMoveSpeedDisplay;
-    public Text currentMightDisplay;
-    public Text currentProjectileSpeedDisplay;
-    public Text currentMagnetDisplay;
+    public TMPro.TMP_Text currentHealthDisplay;
+    public TMPro.TMP_Text currentRecoveryDisplay;
+    public TMPro.TMP_Text currentMoveSpeedDisplay;
+    public TMPro.TMP_Text currentMightDisplay;
+    public TMPro.TMP_Text currentProjectileSpeedDisplay;
+    public TMPro.TMP_Text currentMagnetDisplay;
 
     [Header("Result Screen Displays")]
     public Image chosenCharacterImage;
-    public Text chosenCharacterName;
-    public Text levelReachedDisplay;
-    public Text timeSurvivedDisplay;
+    public TMPro.TMP_Text chosenCharacterName;
+    public TMPro.TMP_Text levelReachedDisplay;
+    public TMPro.TMP_Text timeSurvivedDisplay;
     public List<Image> chosenWeaponsUI = new List<Image>(6);
     public List<Image> chosenPassiveItemsUI = new List<Image>(6);
 
     [Header("Stopwatch")]
     public float timeLimit;
     public float stopwatchTime;
-    public Text stopwatchDisplay;
+    public TMPro.TMP_Text stopwatchDisplay;
 
     public bool isGameOver = false; // Is the game over? 
 
