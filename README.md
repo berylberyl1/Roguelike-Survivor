@@ -1,2 +1,3 @@
 # Bullet-Heaven-Survivor-Personal-Project
-Bullet Heaven Survivor 2D game Unity personal project
+
+I created this game intending to learn and familiarize myself with features in Unity for 2D game development.
