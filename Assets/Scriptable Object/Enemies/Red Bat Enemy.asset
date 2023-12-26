@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a59275a9be8bf4599dd409f8a303fe, type: 3}
   m_Name: Red Bat Enemy
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1.5
   maxHealth: 10
   damage: 50
